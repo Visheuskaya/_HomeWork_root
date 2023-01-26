@@ -17,7 +17,7 @@ import s2 from '../../s1-main/App.module.css'
 * */
 
 // types
-export type AffairPriorityType = 'high' | 'middle' |'low'   // need to fix any
+export type AffairPriorityType = 'high' |'low'  | 'middle'  // need to fix any
 export type AffairType = {
     _id: number // need to fix any
     name: string // need to fix any
@@ -37,11 +37,14 @@ const defaultAffairs: AffairType[] =[ // need to fix any
 
 // pure helper functions
 export const filterAffairs = (affairs: AffairType[], filter:FilterType): AffairType[] => { // need to fix any
-    if(filter === 'all') {
-        return affairs
-    }else{
-        return affairs.filter(a => a.priority === filter)
+    if(filter === 'all') return affairs
+    else if (filter === 'low') return affairs.filter(a => a.priority === 'low')
+    else if (filter === 'middle') return affairs.filter(a => a.priority === 'middle')
+    else if (filter === 'high') return affairs.filter(a => a.priority === 'high')
+    else {
+
     }
+    return affairs
 }
 export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
    return affairs.filter( a => a._id !== _id)

@@ -6,7 +6,7 @@ import s2 from '../Affairs.module.css'
 type AffairPropsType = {
     // key не нужно типизировать
     affair: AffairType
-    deleteAffairCallback: (_id: number) => void // need to fix any
+    deleteAffairCallback: (id: number) => void // need to fix any
 }
 
 function Affair(props: AffairPropsType) {
@@ -18,7 +18,7 @@ function Affair(props: AffairPropsType) {
 
     return (
         <div
-            id={'hw2-affair-' + props.affair._id}
+            id={'hw2-affair-' + props.affair.priority}
             className={affairClass}
         >
             <div id={'hw2-name-' + props.affair._id} className={nameClass}>
